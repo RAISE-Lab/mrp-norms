@@ -11,6 +11,7 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
+  <arg name="local_user_waiting" default="true"/>
   <arg name="local_user_camera" default="true"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
@@ -19,34 +20,67 @@
     <!-- more default parameters can be changed here -->
   </include>
 
-  <group unless="$(arg local_user_camera)">
-    <include file="$(find person)/launch/person.launch">
+  <group if="$(arg local_user_waiting)">
+    <group unless="$(arg local_user_camera)">
+      <include file="$(find person)/launch/person.launch">
+        <arg name="x" value="2.0"/>
+        <arg name="y" value="2.0"/>
+        <arg name="z" value="0.1"/>
+        <arg name="yaw" value="2.5"/>
+        <arg name="model_name" value="local_user"/>
+      </include>
+    </group>
+
+    <group if="$(arg local_user_camera)">
+      <include file="$(find person_with_camera)/launch/person.launch">
+        <arg name="x" value="3.0"/>
+        <arg name="y" value="3.0"/>
+        <arg name="z" value="0.1"/>
+        <arg name="yaw" value="-0.6"/>
+        <arg name="model_name" value="local_user"/>
+      </include>
+    </group>
+
+    <include file="$(find tb_gazebo)/launch/spawn_tb.launch">
+      <arg name="x" value="3.0"/>
+      <arg name="y" value="-4.0"/>
+      <arg name="z" value="0.1"/>
+      <arg name="yaw" value="2"/>
+      <arg name="robot_ns" value="$(arg robot_ns)"/>
+      <arg name="enable_rviz" value="$(arg enable_rviz)"/>
+    </include>
+  </group>
+
+  <group unless="$(arg local_user_waiting)">
+    <group unless="$(arg local_user_camera)">
+      <include file="$(find person)/launch/person.launch">
+        <arg name="x" value="3.0"/>
+        <arg name="y" value="4.0"/>
+        <arg name="z" value="0.1"/>
+        <arg name="yaw" value="2.5"/>
+        <arg name="model_name" value="local_user"/>
+      </include>
+    </group>
+
+    <group if="$(arg local_user_camera)">
+      <include file="$(find person_with_camera)/launch/person.launch">
+        <arg name="x" value="5.0"/>
+        <arg name="y" value="6.0"/>
+        <arg name="z" value="0.1"/>
+        <arg name="yaw" value="-0.6"/>
+        <arg name="model_name" value="local_user"/>
+      </include>
+    </group>
+
+    <include file="$(find tb_gazebo)/launch/spawn_tb.launch">
       <arg name="x" value="2.0"/>
-      <arg name="y" value="2.0"/>
+      <arg name="y" value="-2.0"/>
       <arg name="z" value="0.1"/>
       <arg name="yaw" value="2.5"/>
-      <arg name="model_name" value="local_user"/>
+      <arg name="robot_ns" value="$(arg robot_ns)"/>
+      <arg name="enable_rviz" value="$(arg enable_rviz)"/>
     </include>
   </group>
-
-  <group if="$(arg local_user_camera)">
-    <include file="$(find person_with_camera)/launch/person.launch">
-      <arg name="x" value="3.0"/>
-      <arg name="y" value="3.0"/>
-      <arg name="z" value="0.1"/>
-      <arg name="yaw" value="-0.6"/>
-      <arg name="model_name" value="local_user"/>
-    </include>
-  </group>
-
-  <include file="$(find tb_gazebo)/launch/spawn_tb.launch">
-    <arg name="x" value="2.0"/>
-    <arg name="y" value="-2.0"/>
-    <arg name="z" value="0.1"/>
-    <arg name="yaw" value="2.5"/>
-    <arg name="robot_ns" value="$(arg robot_ns)"/>
-    <arg name="enable_rviz" value="$(arg enable_rviz)"/>
-  </include>
 
   <group if="$(arg enable_teleop)">
     <include file="$(find tb_teleop)/launch/manual_controller.launch">
