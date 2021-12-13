@@ -28,7 +28,7 @@
         <material>
           <script>
             <name>MRPFaceMaterial</name>
-            <uri>file://cartoon_face/materials/scripts/mrp-face.material</uri>
+            <uri>file://materials/scripts/mrp-face.material</uri>
           </script>
           <shader type='pixel'>
             <normal_map>__default__</normal_map>
