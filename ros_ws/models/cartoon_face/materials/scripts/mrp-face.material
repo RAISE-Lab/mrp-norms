@@ -1,0 +1,14 @@
+material MRPFaceMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/mrp-face.png
+          scale 1 1
+         }
+      }   
+   }
+}
