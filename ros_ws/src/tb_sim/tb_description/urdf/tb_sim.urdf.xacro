@@ -200,13 +200,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://tb_description/meshes/display_link.STL" />
+        <mesh filename="package://tb_description/meshes/display_link.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://tb_description/meshes/display_link.STL" />
+        <mesh filename="package://tb_description/meshes/display_link.dae" />
       </geometry>
     </collision>
   </link>
