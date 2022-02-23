@@ -54,10 +54,10 @@
             </plane>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
+          <script>
+            <name>FloorMaterial</name>
+            <uri>file://materials/scripts/floor.material</uri>
+          </script>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -424,8 +424,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
+              <name>WallMaterial</name>
+              <uri>file://materials/scripts/wall.material</uri>
             </script>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
@@ -522,8 +522,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
+              <name>WallMaterial</name>
+              <uri>file://materials/scripts/wall.material</uri>
             </script>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>
@@ -620,8 +620,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
+              <name>WallMaterial</name>
+              <uri>file://materials/scripts/wall.material</uri>
             </script>
             <shader type='pixel'>
               <normal_map>__default__</normal_map>

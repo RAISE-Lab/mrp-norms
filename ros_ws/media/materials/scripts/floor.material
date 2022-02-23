@@ -1,0 +1,14 @@
+material FloorMaterial
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture ../textures/wood-floor-texture.jpg
+          scale 0.01 0.01
+         }
+      }   
+   }
+}
