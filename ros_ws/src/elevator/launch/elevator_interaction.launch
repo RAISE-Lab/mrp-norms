@@ -73,10 +73,10 @@
     </group>
 
     <include file="$(find tb_gazebo)/launch/spawn_tb.launch">
-      <arg name="x" value="1.1"/>
-      <arg name="y" value="-2.1"/>
+      <arg name="x" value="1.5"/>
+      <arg name="y" value="-1.1"/>
       <arg name="z" value="0.1"/>
-      <arg name="yaw" value="2"/>
+      <arg name="yaw" value="2.2"/>
       <arg name="robot_ns" value="$(arg robot_ns)"/>
       <arg name="enable_rviz" value="$(arg enable_rviz)"/>
     </include>
